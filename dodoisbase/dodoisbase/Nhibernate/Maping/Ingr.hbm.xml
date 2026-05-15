@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="dodoisbase"
+                   namespace="dodoisbase.Nhibernate.Entites">
+
+	<class name="Ingr" table="[Ингредиенты]">
+		<id name="ID_Ингредиента" column="[ID_Ингредиента]">
+			<generator class="native" />
+		</id>
+
+		<property name="Название" column="[Название]" />
+		<property name="Цена_за_ед" column="[Цена_за_ед]" />
+		<property name="Срок_годности" column="[Срок_годности]" />
+		<property name="Количество_на_складе" column="[Количество_на_складе]" />
+
+	</class>
+</hibernate-mapping>
