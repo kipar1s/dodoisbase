@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F085B541-F36B-4650-8252-A0E0A9AE89DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>dodoisbase</RootNamespace>
+    <AssemblyName>dodoisbase</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.1.1\lib\net462\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.9.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.10\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.5\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=5.6.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.6.0\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.JetDriver, Version=2.0.0.1002, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.JetDriver.2.0.0.1002\lib\net40\NHibernate.JetDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.10.0.5\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.10.0.5\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.10.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CategoriEnumU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriEnumU.Designer.cs">
+      <DependentUpon>CategoriEnumU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurierFormU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurierFormU.Designer.cs">
+      <DependentUpon>CurierFormU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurierFormUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurierFormUnit.Designer.cs">
+      <DependentUpon>CurierFormUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CurierList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurierList.Designer.cs">
+      <DependentUpon>CurierList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dodoDS.cs">
+      <DependentUpon>dodoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dodoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dodoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DostavkaEnumU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DostavkaEnumU.Designer.cs">
+      <DependentUpon>DostavkaEnumU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngrListF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngrListF.Designer.cs">
+      <DependentUpon>IngrListF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngrFormU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngrFormU.Designer.cs">
+      <DependentUpon>IngrFormU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUtiletes.cs" />
+    <Compile Include="Nhibernate\Entites\Curier.cs" />
+    <Compile Include="Nhibernate\Entites\Ingr.cs" />
+    <Compile Include="Nhibernate\Entites\Oder.cs" />
+    <Compile Include="Nhibernate\Entites\Personal.cs" />
+    <Compile Include="Nhibernate\Entites\Tovar.cs" />
+    <Compile Include="TovarFormUIngr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TovarFormUIngr.Designer.cs">
+      <DependentUpon>TovarFormUIngr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OderFormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OderFormUser.Designer.cs">
+      <DependentUpon>OderFormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OderListF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OderListF.Designer.cs">
+      <DependentUpon>OderListF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OdersForm.Designer.cs">
+      <DependentUpon>OdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalFormUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalFormUnit.Designer.cs">
+      <DependentUpon>PersonalFormUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PersonalListForm.Designer.cs">
+      <DependentUpon>PersonalListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlategFormU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlategFormU.Designer.cs">
+      <DependentUpon>PlategFormU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlategListF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlategListF.Designer.cs">
+      <DependentUpon>PlategListF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlategListOder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlategListOder.Designer.cs">
+      <DependentUpon>PlategListOder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SostOderListF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SostOderListF.Designer.cs">
+      <DependentUpon>SostOderListF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TovarFormU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TovarFormU.Designer.cs">
+      <DependentUpon>TovarFormU.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TovarListF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TovarListF.Designer.cs">
+      <DependentUpon>TovarListF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFormUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormUnit.Designer.cs">
+      <DependentUpon>UserFormUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CategoriEnumU.resx">
+      <DependentUpon>CategoriEnumU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurierFormU.resx">
+      <DependentUpon>CurierFormU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurierFormUnit.resx">
+      <DependentUpon>CurierFormUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CurierList.resx">
+      <DependentUpon>CurierList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DostavkaEnumU.resx">
+      <DependentUpon>DostavkaEnumU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngrListF.resx">
+      <DependentUpon>IngrListF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngrFormU.resx">
+      <DependentUpon>IngrFormU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OderFormUser.resx">
+      <DependentUpon>OderFormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OderListF.resx">
+      <DependentUpon>OderListF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdersForm.resx">
+      <DependentUpon>OdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalFormUnit.resx">
+      <DependentUpon>PersonalFormUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalListForm.resx">
+      <DependentUpon>PersonalListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlategFormU.resx">
+      <DependentUpon>PlategFormU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlategListF.resx">
+      <DependentUpon>PlategListF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SostOderListF.resx">
+      <DependentUpon>SostOderListF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TovarFormU.resx">
+      <DependentUpon>TovarFormU.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TovarFormUIngr.resx">
+      <DependentUpon>TovarFormUIngr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TovarListF.resx">
+      <DependentUpon>TovarListF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormUnit.resx">
+      <DependentUpon>UserFormUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dodoDS.xsc">
+      <DependentUpon>dodoDS.xsd</DependentUpon>
+    </None>
+    <None Include="dodoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dodoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dodoDS.xss">
+      <DependentUpon>dodoDS.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\dodoisbase.Nhibernate.Entites.Curier.datasource" />
+    <None Include="Properties\DataSources\dodoisbase.Nhibernate.Entites.Ingr.datasource" />
+    <None Include="Properties\DataSources\dodoisbase.Nhibernate.Entites.Personal.datasource" />
+    <None Include="Properties\DataSources\dodoisbase.Nhibernate.Entites.Tovar.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Nhibernate\Maping\Curier.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Nhibernate\Maping\Perconal.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Nhibernate\Maping\Ingr.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Nhibernate\Maping\Tovar.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Nhibernate\Maping\Oder.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+  </Target>
+</Project>

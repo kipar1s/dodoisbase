@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+hibernate-mapping
+	assembly - название сборки
+	namespace - пространство имён приложения
+	по умолчанию assembly и namespace совпадают
+	с названием решения Visual Studio.
+class name - имя класса, на который выполняется отображение
+	по умолчанию совпадает с названием таблицы в базе данных.
+	Если нужно отображение на таблицу с другим именем, используйте
+	атрибут table.
+property name - имя свойства класса, на которое отображается
+	конкретное поле таблицы базы данных. По умолчанию имя
+	свойства класса совпадает с именем поля таблицы. Если 
+	нужно отображение на поле с другим именем, используйте
+	атрибут column.
+-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="dodoisbase"
+                   namespace="dodoisbase.Nhibernate.Entites">
+	<class name="Personal" table="[Сотрудники]">
+		<id name="ID_Сотрудника" column="[ID_Сотрудника]">
+			<generator class="native" />
+		</id>
+		<property name="ФИО" column="[ФИО]" />
+		<property name="Стаж" column="[Стаж]" />
+		<property name="ID_Категории" column="[ID_Категории]" />
+
+		<bag name="Oders" table="Доставка">
+			<key column ="ID_Сотрудника"/>
+			<many-to-many class =" Заказы" colunm ="ID_Заказа"/>
+			
+		</bag>
+	</class>			   
+</hibernate-mapping>
+

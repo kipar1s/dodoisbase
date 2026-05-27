@@ -1,0 +1,17 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="dodoisbase"
+                   namespace="dodoisbase.Nhibernate.Entites">
+	
+	<class name="Tovar" table="[Товар]">
+		<id name="ID_Товара" column="[ID_Товара]">
+			<generator class="assigned" />
+		</id>
+		
+		<one-to-one name="Ингредиент" class="dodoisbase.Nhibernate.Entites.Ingr" cascade="all"/>
+		
+		<property name="Название" column="[Название]" />
+		<property name="Цена" column="[Цена]" />
+		<property name="Категория" column="[Категория]" />
+		<property name="Калорийность" column="[Калорийность]" />
+	</class>
+</hibernate-mapping>
