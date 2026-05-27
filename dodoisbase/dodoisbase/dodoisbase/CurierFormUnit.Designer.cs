@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurierFormUnit));
             this.btn_OK = new System.Windows.Forms.Button();
             this.tb_FIO = new System.Windows.Forms.TextBox();
+            this.personalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Cuncel = new System.Windows.Forms.Button();
             this.lb_Warning = new System.Windows.Forms.Label();
@@ -39,6 +40,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.gb_Curier = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDКурьераDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.номерВУDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.машинаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.номермашиныDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bN_Oder = new System.Windows.Forms.BindingNavigator(this.components);
             this.curierbindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
@@ -69,22 +76,15 @@
             this.dodoDS = new dodoisbase.dodoDS();
             this.curierTableAdapter = new dodoisbase.dodoDSTableAdapters.КурьерTableAdapter();
             this.personalTableAdapter = new dodoisbase.dodoDSTableAdapters.СотрудникиTableAdapter();
-            this.personalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDКурьераDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.номерВУDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.машинаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.номермашиныDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.curierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).BeginInit();
             this.gb_Curier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.curierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bN_Oder)).BeginInit();
             this.bN_Oder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bN_User)).BeginInit();
             this.bN_User.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dodoDS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_OK
@@ -107,6 +107,11 @@
             this.tb_FIO.ReadOnly = true;
             this.tb_FIO.Size = new System.Drawing.Size(75, 22);
             this.tb_FIO.TabIndex = 43;
+            // 
+            // personalBindingSource
+            // 
+            this.personalBindingSource.DataSource = typeof(dodoisbase.Nhibernate.Entites.Personal);
+            this.personalBindingSource.CurrentChanged += new System.EventHandler(this.personalBindingSource_CurrentChanged);
             // 
             // label2
             // 
@@ -178,12 +183,58 @@
             this.номермашиныDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.curierBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 45);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 60);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 64);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // iDКурьераDataGridViewTextBoxColumn
+            // 
+            this.iDКурьераDataGridViewTextBoxColumn.DataPropertyName = "ID_Курьера";
+            this.iDКурьераDataGridViewTextBoxColumn.HeaderText = "ID_Курьера";
+            this.iDКурьераDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iDКурьераDataGridViewTextBoxColumn.Name = "iDКурьераDataGridViewTextBoxColumn";
+            this.iDКурьераDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // номерВУDataGridViewTextBoxColumn
+            // 
+            this.номерВУDataGridViewTextBoxColumn.DataPropertyName = "Номер_ВУ";
+            this.номерВУDataGridViewTextBoxColumn.HeaderText = "Номер_ВУ";
+            this.номерВУDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.номерВУDataGridViewTextBoxColumn.Name = "номерВУDataGridViewTextBoxColumn";
+            this.номерВУDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // телефонDataGridViewTextBoxColumn
+            // 
+            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // машинаDataGridViewTextBoxColumn
+            // 
+            this.машинаDataGridViewTextBoxColumn.DataPropertyName = "Машина";
+            this.машинаDataGridViewTextBoxColumn.HeaderText = "Машина";
+            this.машинаDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.машинаDataGridViewTextBoxColumn.Name = "машинаDataGridViewTextBoxColumn";
+            this.машинаDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // номермашиныDataGridViewTextBoxColumn
+            // 
+            this.номермашиныDataGridViewTextBoxColumn.DataPropertyName = "Номер_машины";
+            this.номермашиныDataGridViewTextBoxColumn.HeaderText = "Номер_машины";
+            this.номермашиныDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.номермашиныDataGridViewTextBoxColumn.Name = "номермашиныDataGridViewTextBoxColumn";
+            this.номермашиныDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // curierBindingSource
+            // 
+            this.curierBindingSource.DataSource = typeof(dodoisbase.Nhibernate.Entites.Curier);
+            this.curierBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.curierBindingSource_AddingNew);
+            this.curierBindingSource.CurrentChanged += new System.EventHandler(this.curierBindingSource_CurrentChanged);
             // 
             // bN_Oder
             // 
@@ -212,7 +263,7 @@
             this.bN_Oder.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bN_Oder.Name = "bN_Oder";
             this.bN_Oder.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bN_Oder.Size = new System.Drawing.Size(764, 31);
+            this.bN_Oder.Size = new System.Drawing.Size(764, 27);
             this.bN_Oder.TabIndex = 0;
             this.bN_Oder.Text = "bN_Curier";
             // 
@@ -222,14 +273,14 @@
             this.curierbindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("curierbindingNavigatorAddNewItem1.Image")));
             this.curierbindingNavigatorAddNewItem1.Name = "curierbindingNavigatorAddNewItem1";
             this.curierbindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
-            this.curierbindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 28);
+            this.curierbindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 24);
             this.curierbindingNavigatorAddNewItem1.Text = "Добавить";
             this.curierbindingNavigatorAddNewItem1.Click += new System.EventHandler(this.curierbindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem1
             // 
             this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(55, 28);
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(55, 24);
             this.bindingNavigatorCountItem1.Text = "для {0}";
             this.bindingNavigatorCountItem1.ToolTipText = "Общее число элементов";
             // 
@@ -239,7 +290,7 @@
             this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
             this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
             this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem1.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem1
@@ -248,7 +299,7 @@
             this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
             this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
             this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem1.Text = "Переместить в начало";
             // 
             // bindingNavigatorMovePreviousItem1
@@ -257,13 +308,13 @@
             this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
             this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
             this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem1.Text = "Переместить назад";
             // 
             // bindingNavigatorSeparator3
             // 
             this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
-            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem1
             // 
@@ -278,7 +329,7 @@
             // bindingNavigatorSeparator4
             // 
             this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
-            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem1
             // 
@@ -286,7 +337,7 @@
             this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
             this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
             this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem1.Text = "Переместить вперед";
             // 
             // bindingNavigatorMoveLastItem1
@@ -295,13 +346,13 @@
             this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
             this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
             this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem1.Text = "Переместить в конец";
             // 
             // bindingNavigatorSeparator5
             // 
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
-            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButton1
             // 
@@ -309,7 +360,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(220, 28);
+            this.toolStripButton1.Size = new System.Drawing.Size(220, 24);
             this.toolStripButton1.Text = "Просмотр и редактирование ";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -422,6 +473,7 @@
             this.bN_User.AddNewItem = this.personalbindingNavigatorAddNewItem;
             this.bN_User.BindingSource = this.personalBindingSource;
             this.bN_User.CountItem = this.bindingNavigatorCountItem;
+            this.bN_User.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personalBindingSource, "ID_Сотрудника", true));
             this.bN_User.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bN_User.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.bN_User.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -443,7 +495,7 @@
             this.bN_User.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bN_User.Name = "bN_User";
             this.bN_User.PositionItem = this.bindingNavigatorPositionItem;
-            this.bN_User.Size = new System.Drawing.Size(813, 31);
+            this.bN_User.Size = new System.Drawing.Size(813, 27);
             this.bN_User.TabIndex = 60;
             this.bN_User.Text = "bN_Personal";
             // 
@@ -460,62 +512,11 @@
             // 
             this.personalTableAdapter.ClearBeforeFill = true;
             // 
-            // personalBindingSource
-            // 
-            this.personalBindingSource.DataSource = typeof(dodoisbase.Nhibernate.Entites.Personal);
-            this.personalBindingSource.CurrentChanged += new System.EventHandler(this.personalBindingSource_CurrentChanged);
-            // 
-            // iDКурьераDataGridViewTextBoxColumn
-            // 
-            this.iDКурьераDataGridViewTextBoxColumn.DataPropertyName = "ID_Курьера";
-            this.iDКурьераDataGridViewTextBoxColumn.HeaderText = "ID_Курьера";
-            this.iDКурьераDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.iDКурьераDataGridViewTextBoxColumn.Name = "iDКурьераDataGridViewTextBoxColumn";
-            this.iDКурьераDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // номерВУDataGridViewTextBoxColumn
-            // 
-            this.номерВУDataGridViewTextBoxColumn.DataPropertyName = "Номер_ВУ";
-            this.номерВУDataGridViewTextBoxColumn.HeaderText = "Номер_ВУ";
-            this.номерВУDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.номерВУDataGridViewTextBoxColumn.Name = "номерВУDataGridViewTextBoxColumn";
-            this.номерВУDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // телефонDataGridViewTextBoxColumn
-            // 
-            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
-            this.телефонDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // машинаDataGridViewTextBoxColumn
-            // 
-            this.машинаDataGridViewTextBoxColumn.DataPropertyName = "Машина";
-            this.машинаDataGridViewTextBoxColumn.HeaderText = "Машина";
-            this.машинаDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.машинаDataGridViewTextBoxColumn.Name = "машинаDataGridViewTextBoxColumn";
-            this.машинаDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // номермашиныDataGridViewTextBoxColumn
-            // 
-            this.номермашиныDataGridViewTextBoxColumn.DataPropertyName = "Номер_машины";
-            this.номермашиныDataGridViewTextBoxColumn.HeaderText = "Номер_машины";
-            this.номермашиныDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.номермашиныDataGridViewTextBoxColumn.Name = "номермашиныDataGridViewTextBoxColumn";
-            this.номермашиныDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // curierBindingSource
-            // 
-            this.curierBindingSource.DataSource = typeof(dodoisbase.Nhibernate.Entites.Curier);
-            this.curierBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.curierBindingSource_AddingNew);
-            this.curierBindingSource.CurrentChanged += new System.EventHandler(this.curierBindingSource_CurrentChanged);
-            // 
             // CurierFormUnit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 292);
+            this.ClientSize = new System.Drawing.Size(813, 277);
             this.Controls.Add(this.bN_User);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -529,9 +530,11 @@
             this.Name = "CurierFormUnit";
             this.Text = "Форма Курьера";
             this.Load += new System.EventHandler(this.CurierFormUnit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).EndInit();
             this.gb_Curier.ResumeLayout(false);
             this.gb_Curier.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.curierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bN_Oder)).EndInit();
             this.bN_Oder.ResumeLayout(false);
             this.bN_Oder.PerformLayout();
@@ -539,8 +542,6 @@
             this.bN_User.ResumeLayout(false);
             this.bN_User.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dodoDS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personalBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.curierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
